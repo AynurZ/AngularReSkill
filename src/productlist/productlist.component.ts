@@ -5,11 +5,11 @@ import { ProductService } from '../app/product.service';
 
 @Component({
   selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  templateUrl: './productlist.component.html',
+  styleUrls: ['./productlist.component.css']
 })
-export class ProductComponent implements OnInit {
-  products: Product[] = [];
+export class ProductListComponent implements OnInit {
+  product: Product[] = [];
 
   constructor(private productService: ProductService) { }
 
@@ -19,6 +19,6 @@ export class ProductComponent implements OnInit {
 
   getproducts(): void {
     this.productService.getProducts()
-    .subscribe(product => this.products = product);
+    .subscribe(product => this.product = product);
   }
 }
