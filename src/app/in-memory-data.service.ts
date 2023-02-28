@@ -20,7 +20,8 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 20, name: 'Tornado' }
     ];
     const products = [
-      { id: 12, title: 'Dr. Nice',price:100,description:"description",category:"category", image:"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg", rating:"rating"}
+      { id: 12, title: 'Dr. Nice',price:100,description:"description",category:"category", image:"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg", rating:"rating"},
+      { id: 13, title: 'Dr. Two',price:110,description:"description2",category:"category", image:"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg", rating:"rating"}
     ];
     return {heroes,products};
   }

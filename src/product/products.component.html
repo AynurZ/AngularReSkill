@@ -1,9 +1,16 @@
-<ul>
-  <li *ngFor="let product of products">
-    <div  class="row align-items-center p-3 bg-primary text-white w-50 mx-auto">
-        <div class="col text-center">{{product.title}}</div>
-        <div class="col text-center">{{product.title}}</div>
-        <div class="col text-center">{{product.price}}</div>
-    </div>
-  </li>
-</ul>
+<div class="w-60">
+  <div>
+    <h4>list of Items</h4>
+  </div>
+  <div>
+    <ul>
+      <li *ngFor="let product of products">
+          <div class="row align-items-center p-3 bg-light text-dark w-70 mx-auto ">
+              <div class="col text-center">{{product.title}}</div>
+              <div class="col text-center">{{product.title}}</div>
+              <div class="col text-center">{{product.price}}</div>
+          </div>
+      </li>
+    </ul>
+  </div>
+</div>
