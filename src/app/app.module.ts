@@ -21,7 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+    InMemoryDataService, { dataEncapsulation: false }
     ),
      NgbModule
   ],
