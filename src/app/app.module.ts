@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from '../productlist/productlist.component';
-import { HeaderComponent } from '../header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -27,8 +26,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   declarations: [
     AppComponent,
-    ProductListComponent,
-    HeaderComponent
+    ProductListComponent
   ],
   bootstrap: [ AppComponent ]
 })
