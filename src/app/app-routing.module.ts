@@ -18,9 +18,6 @@ const routes: Routes = [
     redirectTo: '',
     pathMatch: 'full'
   }
-  /*,
-  { path: 'product', component: ProductListComponent },
-  { path: 'basket', component: BasketComponent }*/
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../app/product';
-import { ProductService } from '../app/product.service';
+import { ProductService } from '../../service/product.service';
 
 @Component({
   selector: 'basket',
