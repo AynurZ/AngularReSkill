@@ -7,11 +7,6 @@ import { Product } from '../src/app/product';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-/*
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-*/
   constructor(
     private http: HttpClient) { }
 

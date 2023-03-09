@@ -1,0 +1,9 @@
+<div class="w-60">
+  <div>
+    <h4>list of Items</h4>
+  </div>
+  <div>
+    <app-basketproduct *ngFor="let iterItems of items$ | async" [item]="iterItems">
+    </app-basketproduct>
+  </div>
+</div>

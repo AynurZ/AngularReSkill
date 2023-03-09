@@ -8,6 +8,8 @@ import { ProductListComponent } from '../productlist/productlist.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from 'src/header/header.component';
 import { ProductComponent } from '../product/product.component';
+import { BasketProductComponent } from '../basketproduct/basketproduct.component';
+import { BasketProductListComponent } from '../basketproductlist/basketproductlist.component';
 
 @NgModule({
   imports: [
@@ -23,7 +25,9 @@ import { ProductComponent } from '../product/product.component';
     AppComponent,
     ProductListComponent,
     HeaderComponent,
-    ProductComponent
+    ProductComponent,
+    BasketProductListComponent,
+    BasketProductComponent
   ],
   bootstrap: [ AppComponent ]
 })

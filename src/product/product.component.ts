@@ -1,6 +1,6 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, Output,EventEmitter} from '@angular/core';
 import { Product } from '../app/product';
-import { ProductService } from '../../service/product.service';
+import { CartService } from '../../service/cartservice';
 
 @Component({
   selector: 'app-product',
@@ -9,13 +9,16 @@ import { ProductService } from '../../service/product.service';
 })
 export class ProductComponent {
   constructor(
-    private readonly productService: ProductService
+    public readonly cartService: CartService
   ) {}
   @Input() item!: Product;
 
-  
-  /*
-  onAddHandler(item: Product): void{
-    this.productService.AddItem(item)
-  }*/
+  @Output() outEnterName = new EventEmitter<HTMLLabelElement>()
+
+  enterName(product: Product){
+    console.log('nameInput',product.id)
+    this.cartService.AddItem(product)
+    console.log('nameInput','finish')
+  }
+
 }

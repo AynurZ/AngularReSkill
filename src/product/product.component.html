@@ -1,6 +1,6 @@
 <div class="row align-items-center p-3 bg-light text-dark w-70 mx-auto ">
-    <div class="col text-center">{{item!.title}}</div>
-    <div class="col text-center">{{item.price}}</div>
-    <div class="col text-center">1</div>
-    <div class="col text-center"><input type="button" value="Add"></div>
+    <div class="col text-center"><label>{{item.id}}</label></div>
+    <div class="col text-center"><label>{{item.title}}</label></div>
+    <div class="col text-center"><label>{{item.price}}</label></div>
+    <div class="col text-center"><input type="button" value="Add" (click)="enterName(item)"></div>
 </div>
