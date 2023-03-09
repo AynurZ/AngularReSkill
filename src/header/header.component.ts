@@ -6,14 +6,4 @@ import { CartService } from '../../service/cartservice';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(
-    public readonly cartService: CartService
-  ) {}
-
-  public total!: number;
-  
-  ngOnInit(): void {
-    this.total = this.cartService.GetTotal$();
-    console.log('total= ',this.total)
-  }
 }

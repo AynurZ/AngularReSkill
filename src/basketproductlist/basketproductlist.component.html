@@ -3,7 +3,7 @@
     <h4>list of Items</h4>
   </div>
   <div>
-    <app-basketproduct *ngFor="let iterItems of items$ | async" [item]="iterItems">
+    <app-basketproduct *ngFor="let item of items$ | async" [item]="item">
     </app-basketproduct>
   </div>
 </div>
