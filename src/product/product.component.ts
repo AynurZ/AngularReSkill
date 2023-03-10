@@ -13,7 +13,7 @@ export class ProductComponent {
   ) {}
   @Input() item!: Product;
 
-  @Output() outEnterName = new EventEmitter<HTMLLabelElement>()
+  @Output() outEnterName = new EventEmitter<Product>()
 
   enterName(product: Product){
     console.log('nameInput',product.id)
