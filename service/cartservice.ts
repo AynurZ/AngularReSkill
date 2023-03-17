@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Product } from '../src/app/product';
 import { BasketProduct } from '../src/app/basketProduct'
 
@@ -10,7 +10,9 @@ export class CartService {
 
   basketProducts: Product[]=[];
   public totalProductsInBasket: number = 0;
-  
+  public productsInTheBasket$ = new BehaviorSubject<number>(0)
+
+
   public GetItems$() : Observable<BasketProduct[]>{
     const basketProductArray: Product[] = Array.from(this.basketProducts);
     let productsInBasket: BasketProduct[] = [];
@@ -32,14 +34,15 @@ export class CartService {
     return of (productsInBasket);
     }
 
-    public GetTotal$(): number{
-      return (this.totalProductsInBasket);
+    public AddItem(product: Product){
+      this.totalProductsInBasket ++;
+      this.productsInTheBasket$.next(this.totalProductsInBasket);
+      this.basketProducts.push(product)
     }
 
-    public AddItem(product: Product){
-        console.log(product);
-        this.totalProductsInBasket ++;
-        this.basketProducts.push(product)
-        console.log(this.totalProductsInBasket);
-      }
+    public GetTotal$(){
+      return (this.productsInTheBasket$);
+    }
+
+
 }

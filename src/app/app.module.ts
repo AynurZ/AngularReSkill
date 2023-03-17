@@ -10,6 +10,7 @@ import { HeaderComponent } from 'src/header/header.component';
 import { ProductComponent } from '../product/product.component';
 import { BasketProductComponent } from '../basketproduct/basketproduct.component';
 import { BasketProductListComponent } from '../basketproductlist/basketproductlist.component';
+import { HeadertotalComponent } from '../headertotal/headertotal.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { BasketProductListComponent } from '../basketproductlist/basketproductli
     HeaderComponent,
     ProductComponent,
     BasketProductListComponent,
-    BasketProductComponent
+    BasketProductComponent,
+    HeadertotalComponent
   ],
   bootstrap: [ AppComponent ]
 })
