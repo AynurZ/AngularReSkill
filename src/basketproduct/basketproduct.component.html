@@ -1,4 +1,6 @@
 <div class="row align-items-center p-3 bg-light text-dark w-70 mx-auto ">
     <div class="col text-center"><label>{{item.title}}</label></div>
-    <div class="col text-center"><input type="button" value="Add"></div>
+    <!--<div class="col text-center"><input type="button" value="Add"></div>-->
+    <div class="col text-center"><button (click)="onRemoveHandler(item)"></button></div>
+    <button (click)="onRemoveHandler(item)"></button>
 </div>

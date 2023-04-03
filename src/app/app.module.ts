@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,6 +11,10 @@ import { ProductComponent } from '../product/product.component';
 import { BasketProductComponent } from '../basketproduct/basketproduct.component';
 import { BasketProductListComponent } from '../basketproductlist/basketproductlist.component';
 import { HeadertotalComponent } from '../headertotal/headertotal.component';
+import { StoreModule } from '@ngrx/store'
+import { basketproductReducer } from 'src/state/basketproduct.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   imports: [
@@ -19,8 +23,12 @@ import { HeadertotalComponent } from '../headertotal/headertotal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    
-     NgbModule
+    StoreModule.forRoot({}),
+    StoreModule.forFeature("state",basketproductReducer),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    NgbModule,
+    EffectsModule.forRoot([]),
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,

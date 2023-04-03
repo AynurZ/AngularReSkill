@@ -12,6 +12,7 @@ export class ProductService {
 
   public GetItems$(): Observable<Product[]>{
       return this.http.get<Product[]>('https://fakestoreapi.com/products');
+      console.log("step 1")
     }
 
     public GetData(){
