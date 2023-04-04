@@ -73,7 +73,12 @@ export const getBasketProducts = createSelector(
     getBasketProductFeatureState,
     basketProductAdapter.getSelectors().selectAll
 )
-
+export const getBasketProductsTotal = createSelector(
+    getBasketProductFeatureState,
+    (state: BasketProductState) => {
+        return state !== undefined? Object.values(state.entities).reduce((sum, basketProduct) => sum + Number(basketProduct?.count), 0): 0;
+    }
+)
 export const getBasketProductsLoading = createSelector(
     getBasketProductFeatureState,
     (state : BasketProductState)=>state.loading

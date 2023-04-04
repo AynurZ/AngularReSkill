@@ -18,11 +18,13 @@ export class HeadertotalComponent implements OnInit
     private store:Store<any>,
     
   ) {
-
+    this.total$ = this.store.pipe(select(fromBasketProduct.getBasketProductsTotal));
+    console.log("total - ", this.total$)
   }
 
 //public total$: Observable<number> = this.cartService.GetTotal$();
 ngOnInit(): void {
     console.log('product total ',this.total$);
+    this.total$ = this.store.pipe(select(fromBasketProduct.getBasketProductsTotal));
   }
 }
