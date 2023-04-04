@@ -73,6 +73,7 @@ export const getBasketProducts = createSelector(
     getBasketProductFeatureState,
     basketProductAdapter.getSelectors().selectAll
 )
+
 export const getBasketProductsLoading = createSelector(
     getBasketProductFeatureState,
     (state : BasketProductState)=>state.loading

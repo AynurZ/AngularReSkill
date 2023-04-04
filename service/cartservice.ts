@@ -21,7 +21,6 @@ export class CartService {
   public totalProductsInBasket: number = 0;
   public productsInTheBasket$ = new BehaviorSubject<number>(0)
 
-
   public GetItems$() : Observable<BasketProduct[]>{
     const basketProductArray: Product[] = Array.from(this.basketProducts);
     let productsInBasket: BasketProduct[] = [];
@@ -40,17 +39,10 @@ export class CartService {
       
     });
     console.log("value- ",productsInBasket);
-    //this.basketProducts1=productsInBasket;
     return of (productsInBasket);
     }
 
     public AddItem$(product: Product){
-      /*
-      this.totalProductsInBasket ++;
-      this.productsInTheBasket$.next(this.totalProductsInBasket);
-      this.basketProducts.push(product)
-      this.basketProducts1.push(product);
-      */
       this.store$.dispatch(new AddBasketProduct(product));
     }
 

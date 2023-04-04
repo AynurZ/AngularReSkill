@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CartService } from '../../service/cartservice';
-
+import * as fromBasketProduct from "../state/basketproduct.reducer"
 @Component({
   selector: 'app-headertotal',
   templateUrl: './headertotal.component.html',
@@ -15,17 +15,14 @@ export class HeadertotalComponent implements OnInit
   constructor
   (
     private readonly cartService: CartService,
-    private store:Store<any>
-  ) {}
+    private store:Store<any>,
+    
+  ) {
+
+  }
 
 //public total$: Observable<number> = this.cartService.GetTotal$();
 ngOnInit(): void {
-  
-  
-    this.store.dispatch({type:'LOAD_TOTAL_BASKET_PRODUCT'});
-    this.store.subscribe(state=>(this.total$=state.state.total$));
-    
-   //this.total$=this.cartService.GetTotal$();
     console.log('product total ',this.total$);
   }
 }
