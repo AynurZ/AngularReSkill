@@ -83,6 +83,20 @@ export function basketproductReducer(
             return state
         }
         case basketProductActions.BasketProductActionTypes.DELETE_BASKET_PRODUCT: {
+            let currentBasketProduct: BasketProduct | undefined = state.entities[action.payload];
+            if (currentBasketProduct !== undefined && currentBasketProduct.count>1) {
+                const updateBasketProduct: BasketProduct = { 
+                    id: currentBasketProduct.id,
+                    category:currentBasketProduct.category,  
+                    price: currentBasketProduct.price, 
+                    count:  currentBasketProduct.count -1 ,
+                    title:currentBasketProduct.title,
+                    description:currentBasketProduct.description,
+                    image:currentBasketProduct.image,
+                    rating:currentBasketProduct.rating 
+                }
+                return basketProductAdapter.updateOne({ id: currentBasketProduct.id!, changes: updateBasketProduct }, state);
+            }
             return basketProductAdapter.removeOne(action.payload, state)
         }
         default:{
