@@ -1,6 +1,6 @@
 import { Action, ActionReducer } from "@ngrx/store";
 import * as HydrationActions from "./hydration.actions";
-import { RootState } from "../state/root.state";
+import { RootState } from "../../state/root.state";
 
 function isHydrateSuccess(
   action: Action

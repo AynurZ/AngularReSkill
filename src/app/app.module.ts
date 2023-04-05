@@ -16,7 +16,7 @@ import { basketproductReducer } from 'src/state/basketproduct.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers, metaReducers } from '../state';
-import { HydrationEffects } from 'src/state/hydration.effects';
+import { HydrationEffects } from 'src/state/hydration/hydration.effects';
 
 @NgModule({
   imports: [

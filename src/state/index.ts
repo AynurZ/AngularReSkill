@@ -1,7 +1,7 @@
 import { ActionReducerMap, MetaReducer } from "@ngrx/store";
 import * as Basket from './basketproduct.reducer';
 import { RootState } from '../state/root.state';
-import { hydrationMetaReducer } from './hydration.reducer';
+import { hydrationMetaReducer } from './../state/hydration/hydration.reducer';
 
 
 export const reducers: ActionReducerMap<RootState> = {

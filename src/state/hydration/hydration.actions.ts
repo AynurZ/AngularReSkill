@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { RootState } from "../state/root.state";
+import { RootState } from "../root.state";
 
 export const hydrate = createAction("[Hydration] Hydrate");
 
