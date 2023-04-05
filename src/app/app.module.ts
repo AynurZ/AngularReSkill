@@ -15,6 +15,8 @@ import { StoreModule } from '@ngrx/store'
 import { basketproductReducer } from 'src/state/basketproduct.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { reducers, metaReducers } from '../state';
+import { HydrationEffects } from 'src/state/hydration.effects';
 
 @NgModule({
   imports: [
@@ -23,11 +25,11 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({}),
-    StoreModule.forFeature("state",basketproductReducer),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forFeature("basketProducts",basketproductReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     NgbModule,
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([HydrationEffects]),
     AppRoutingModule
   ],
   declarations: [

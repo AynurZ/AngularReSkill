@@ -1,9 +1,10 @@
 import * as basketProductActions from "./basketproduct.action"
 import { BasketProduct } from "src/app/basketProduct"
 import * as fromRoot from "./app-state"
-import { createFeatureSelector, createSelector} from "@ngrx/store"
+import { ActionReducer, INIT, createFeatureSelector, createSelector} from "@ngrx/store"
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity"
 
+  
 export interface BasketProductState extends EntityState<BasketProduct>{
     selectedBasketProduct: number | null,
     loading: boolean,
@@ -76,7 +77,7 @@ export const getBasketProducts = createSelector(
 export const getBasketProductsTotal = createSelector(
     getBasketProductFeatureState,
     (state: BasketProductState) => {
-        return state !== undefined? Object.values(state.entities).reduce((sum, basketProduct) => sum + Number(basketProduct?.count), 0): 0;
+        return state !== undefined? Object.values(state.entities).reduce((sum, basketproduct) => sum + Number(basketproduct), 0): 0;
     }
 )
 export const getBasketProductsLoading = createSelector(
