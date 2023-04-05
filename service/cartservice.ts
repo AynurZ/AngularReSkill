@@ -33,7 +33,8 @@ export class CartService {
         description: product.title,
         category: product.title,
         image: product.title,
-        rating: product.title
+        rating: product.title,
+        count:1
       }
       productsInBasket.push(basketProduct);
       

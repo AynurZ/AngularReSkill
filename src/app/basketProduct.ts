@@ -6,5 +6,5 @@ export interface BasketProduct {
   category: string;
   image: string;
   rating: string;
-  count?: number;
+  count: number;
   }

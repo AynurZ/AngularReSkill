@@ -42,8 +42,34 @@ export function basketproductReducer(
           });
         }
         case basketProductActions.BasketProductActionTypes.ADD_BASKET_PRODUCT: {
-            return basketProductAdapter.addOne(action.payload, state)
-          }
+            let currentBasketProduct: BasketProduct | undefined = state.entities[action.payload.id];
+            if (currentBasketProduct !== undefined) {
+                const updateBasketProduct: BasketProduct = { 
+                    id: currentBasketProduct.id,
+                    category:currentBasketProduct.category,  
+                    price: currentBasketProduct.price, 
+                    count:  currentBasketProduct.count+ 1 ,
+                    title:currentBasketProduct.title,
+                    description:currentBasketProduct.description,
+                    image:currentBasketProduct.image,
+                    rating:currentBasketProduct.rating 
+                }
+                return basketProductAdapter.updateOne({ id: currentBasketProduct.id!, changes: updateBasketProduct }, state);
+            }
+            else{
+                let addBasketProduct: BasketProduct = {
+                    id: action.payload.id,
+                    category:action.payload.category,
+                    price:action.payload.price,
+                    count: 1,
+                    title:action.payload.title,
+                    rating:action.payload.rating,
+                    description:action.payload.description,
+                    image:action.payload.image
+                
+            }
+            return basketProductAdapter.addOne(addBasketProduct, state)
+          }}
         case basketProductActions.BasketProductActionTypes.ADD_BASKET_PRODUCT_FAIL: {
             return {
               ...state,
