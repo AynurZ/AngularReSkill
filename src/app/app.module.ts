@@ -10,11 +10,12 @@ import { HeaderComponent } from 'src/header/header.component';
 import { ProductComponent } from '../product/product.component';
 import { BasketProductComponent } from '../basketproduct/basketproduct.component';
 import { BasketProductListComponent } from '../basketproductlist/basketproductlist.component';
-import { HeadertotalComponent } from '../headertotal/headertotal.component';
+import { NavigationComponent } from '../navigation/navigation.component';
 import { StoreModule } from '@ngrx/store'
 import { basketproductReducer } from 'src/state/basketproduct.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { BaskettotalComponent } from '../baskettotal/baskettotal.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { EffectsModule } from '@ngrx/effects';
     ProductComponent,
     BasketProductListComponent,
     BasketProductComponent,
-    HeadertotalComponent
+    NavigationComponent,
+    BaskettotalComponent
   ],
   bootstrap: [ AppComponent ]
 })

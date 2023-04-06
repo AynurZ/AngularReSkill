@@ -3,13 +3,13 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CartService } from '../../service/cartservice';
 import * as fromBasketProduct from "../state/basketproduct.reducer"
+
 @Component({
-  selector: 'app-headertotal',
-  templateUrl: './headertotal.component.html',
-  styleUrls: ['./headertotal.component.css']
+  selector: 'app-baskettotal',
+  templateUrl: './baskettotal.component.html',
+  styleUrls: ['./baskettotal.component.css']
 })
-export class HeadertotalComponent implements OnInit 
-{
+export class BaskettotalComponent {
   total$!: Observable<number>;
   
   constructor
@@ -26,5 +26,5 @@ export class HeadertotalComponent implements OnInit
 ngOnInit(): void {
     console.log('product total ',this.total$);
     this.total$ = this.store.pipe(select(fromBasketProduct.getBasketProductsTotal));
-  }
+  } 
 }

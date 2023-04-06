@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeadertotalComponent } from './headertotal.component';
+import { BaskettotalComponent } from './baskettotal.component';
 
-describe('HeadertotalComponent', () => {
-  let component: HeadertotalComponent;
-  let fixture: ComponentFixture<HeadertotalComponent>;
+describe('BaskettotalComponent', () => {
+  let component: BaskettotalComponent;
+  let fixture: ComponentFixture<BaskettotalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeadertotalComponent ]
+      declarations: [ BaskettotalComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeadertotalComponent);
+    fixture = TestBed.createComponent(BaskettotalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
