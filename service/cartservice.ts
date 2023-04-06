@@ -17,8 +17,6 @@ export class CartService {
   }
 
   basketProducts: Product[]=[];
-  basketProducts1: BasketProduct[]=[];
-  public totalProductsInBasket: number = 0;
   public productsInTheBasket$ = new BehaviorSubject<number>(0)
 
   public GetItems$() : Observable<BasketProduct[]>{
@@ -49,16 +47,6 @@ export class CartService {
 
     removeFromBasket$(id: number){
       this.store$.dispatch(new DeleteBasketProduct(id));
-      console.log('value deleted - ', id)
-      console.log('value now - ', this.basketProducts)
-      return this.basketProducts1;
+      return this.basketProducts;
     }
-
-    public GetTotal$() : Observable<number>{
-      let Total: any;
-      Total=this.productsInTheBasket$
-      return (Total);
-    }
-
-
 }

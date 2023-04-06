@@ -42,22 +42,22 @@ export function basketproductReducer(
           });
         }
         case basketProductActions.BasketProductActionTypes.ADD_BASKET_PRODUCT: {
-            let currentBasketProduct: BasketProduct | undefined = state.entities[action.payload.id];
-            if (currentBasketProduct !== undefined) {
+            let currentBasketProductToAdd: BasketProduct | undefined = state.entities[action.payload.id];
+            if (currentBasketProductToAdd !== undefined) {
                 const updateBasketProduct: BasketProduct = { 
-                    id: currentBasketProduct.id,
-                    category:currentBasketProduct.category,  
-                    price: currentBasketProduct.price, 
-                    count:  currentBasketProduct.count+ 1 ,
-                    title:currentBasketProduct.title,
-                    description:currentBasketProduct.description,
-                    image:currentBasketProduct.image,
-                    rating:currentBasketProduct.rating 
+                    id: currentBasketProductToAdd.id,
+                    category:currentBasketProductToAdd.category,  
+                    price: currentBasketProductToAdd.price, 
+                    count:  currentBasketProductToAdd.count+ 1 ,
+                    title:currentBasketProductToAdd.title,
+                    description:currentBasketProductToAdd.description,
+                    image:currentBasketProductToAdd.image,
+                    rating:currentBasketProductToAdd.rating 
                 }
-                return basketProductAdapter.updateOne({ id: currentBasketProduct.id!, changes: updateBasketProduct }, state);
+                return basketProductAdapter.updateOne({ id: currentBasketProductToAdd.id!, changes: updateBasketProduct }, state);
             }
             else{
-                let addBasketProduct: BasketProduct = {
+                let addNewBasketProduct: BasketProduct = {
                     id: action.payload.id,
                     category:action.payload.category,
                     price:action.payload.price,
@@ -68,7 +68,7 @@ export function basketproductReducer(
                     image:action.payload.image
                 
             }
-            return basketProductAdapter.addOne(addBasketProduct, state)
+            return basketProductAdapter.addOne(addNewBasketProduct, state)
           }}
         case basketProductActions.BasketProductActionTypes.ADD_BASKET_PRODUCT_FAIL: {
             return {
@@ -83,19 +83,19 @@ export function basketproductReducer(
             return state
         }
         case basketProductActions.BasketProductActionTypes.DELETE_BASKET_PRODUCT: {
-            let currentBasketProduct: BasketProduct | undefined = state.entities[action.payload];
-            if (currentBasketProduct !== undefined && currentBasketProduct.count>1) {
+            let currentBasketProductToDelete: BasketProduct | undefined = state.entities[action.payload];
+            if (currentBasketProductToDelete!.count>1) {
                 const updateBasketProduct: BasketProduct = { 
-                    id: currentBasketProduct.id,
-                    category:currentBasketProduct.category,  
-                    price: currentBasketProduct.price, 
-                    count:  currentBasketProduct.count -1 ,
-                    title:currentBasketProduct.title,
-                    description:currentBasketProduct.description,
-                    image:currentBasketProduct.image,
-                    rating:currentBasketProduct.rating 
+                    id: currentBasketProductToDelete!.id,
+                    category:currentBasketProductToDelete!.category,  
+                    price: currentBasketProductToDelete!.price, 
+                    count:  currentBasketProductToDelete!.count -1 ,
+                    title:currentBasketProductToDelete!.title,
+                    description:currentBasketProductToDelete!.description,
+                    image:currentBasketProductToDelete!.image,
+                    rating:currentBasketProductToDelete!.rating 
                 }
-                return basketProductAdapter.updateOne({ id: currentBasketProduct.id!, changes: updateBasketProduct }, state);
+                return basketProductAdapter.updateOne({ id: currentBasketProductToDelete!.id!, changes: updateBasketProduct }, state);
             }
             return basketProductAdapter.removeOne(action.payload, state)
         }
