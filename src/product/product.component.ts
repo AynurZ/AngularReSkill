@@ -17,7 +17,7 @@ export class ProductComponent {
 
   enterName(product: Product){
     console.log('nameInput',product.id)
-    this.cartService.AddItem(product)
+    this.cartService.AddItem$(product)
   }
 
 }

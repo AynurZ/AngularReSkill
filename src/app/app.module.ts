@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,6 +10,12 @@ import { HeaderComponent } from 'src/header/header.component';
 import { ProductComponent } from '../product/product.component';
 import { BasketProductComponent } from '../basketproduct/basketproduct.component';
 import { BasketProductListComponent } from '../basketproductlist/basketproductlist.component';
+import { NavigationComponent } from '../navigation/navigation.component';
+import { StoreModule } from '@ngrx/store'
+import { basketproductReducer } from 'src/state/basketproduct.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { BaskettotalComponent } from '../baskettotal/baskettotal.component';
 
 @NgModule({
   imports: [
@@ -18,8 +24,12 @@ import { BasketProductListComponent } from '../basketproductlist/basketproductli
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    
-     NgbModule
+    StoreModule.forRoot({}),
+    StoreModule.forFeature("state",basketproductReducer),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    NgbModule,
+    EffectsModule.forRoot([]),
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
@@ -27,7 +37,9 @@ import { BasketProductListComponent } from '../basketproductlist/basketproductli
     HeaderComponent,
     ProductComponent,
     BasketProductListComponent,
-    BasketProductComponent
+    BasketProductComponent,
+    NavigationComponent,
+    BaskettotalComponent
   ],
   bootstrap: [ AppComponent ]
 })

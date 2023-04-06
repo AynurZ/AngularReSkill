@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Product } from '../src/app/product';
 import { BasketProduct } from '../src/app/basketProduct'
+import { Store } from '@ngrx/store';
+import { BasketProductState } from '../src/state/basketproduct.reducer'
+import { AddBasketProduct, LoadBasketProductsSuccess, DeleteBasketProduct } from '../src/state/basketproduct.action'
 
 
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
+  http: any;
+  constructor(
+    private store$: Store<BasketProductState>){
+
+  }
 
   basketProducts: Product[]=[];
-  public totalProductsInBasket: number = 0;
-  
+  public productsInTheBasket$ = new BehaviorSubject<number>(0)
+
   public GetItems$() : Observable<BasketProduct[]>{
     const basketProductArray: Product[] = Array.from(this.basketProducts);
     let productsInBasket: BasketProduct[] = [];
     
-    basketProductArray.forEach(function(product){
+    basketProductArray.forEach((product) =>{
       const basketProduct: BasketProduct = {
         title: product.title,
         id: product.id,
@@ -23,23 +31,22 @@ export class CartService {
         description: product.title,
         category: product.title,
         image: product.title,
-        rating: product.title
+        rating: product.title,
+        count:1
       }
       productsInBasket.push(basketProduct);
       
     });
-
+    console.log("value- ",productsInBasket);
     return of (productsInBasket);
     }
 
-    public GetTotal$(): number{
-      return (this.totalProductsInBasket);
+    public AddItem$(product: Product){
+      this.store$.dispatch(new AddBasketProduct(product));
     }
 
-    public AddItem(product: Product){
-        console.log(product);
-        this.totalProductsInBasket ++;
-        this.basketProducts.push(product)
-        console.log(this.totalProductsInBasket);
-      }
+    removeFromBasket$(id: number){
+      this.store$.dispatch(new DeleteBasketProduct(id));
+      return this.basketProducts;
+    }
 }

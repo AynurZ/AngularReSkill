@@ -14,4 +14,11 @@ export class BasketProductComponent {
   
   @Input() item!: BasketProduct;
 
+  @Output()
+  deletefromBasketProduct = new EventEmitter<BasketProduct>();
+
+  onRemoveHandler(deleteBasketProduct: BasketProduct){
+    this.deletefromBasketProduct.emit(deleteBasketProduct);
+}
+
 }
